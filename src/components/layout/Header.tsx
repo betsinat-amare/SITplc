@@ -20,7 +20,6 @@ const Header: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [underline, setUnderline] = useState({ left: 0, width: 0 });
 
-  // Prevent scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -59,22 +58,24 @@ const Header: React.FC = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 z-[80] w-full font-['Montserrat'] transition-all duration-700
           ${hasScrolled 
-            ? "bg-[#0B1A13] py-4 shadow-2xl" 
-            : "bg-transparent py-8"}`}
+            ? "bg-[#0B1A13] py-2 shadow-2xl" 
+            : "bg-transparent py-6"}`}
       >
+        {/* justify-between handles the spacing between Logo and Nav */}
         <div className="container mx-auto px-6 flex items-center justify-between">
           
-          <Link to="/" className="relative z-[90] transition-transform hover:scale-105">
+          {/* LOGO - Left Aligned */}
+          <Link to="/" className="relative z-[90] transition-transform hover:scale-105 shrink-0">
             <img
               src={SabollaLogo}
               alt="Sabolla"
               className={`w-auto object-contain transition-all duration-500 origin-left
-                ${hasScrolled ? "h-10 md:h-12" : "h-14 md:h-20"}`}
+                ${hasScrolled ? "h-20 md:h-24" : "h-28 md:h-36"}`}
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav ref={navRef} className="hidden lg:flex items-center space-x-10 relative">
+          {/* Desktop Nav - ml-auto pushes it to the RIGHT */}
+          <nav ref={navRef} className="hidden lg:flex items-center space-x-10 relative ml-auto">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               if (item.isPrimary) {
@@ -99,26 +100,35 @@ const Header: React.FC = () => {
                 </Link>
               );
             })}
+            
+            {/* Animated Underline */}
+            <motion.span
+              className="absolute bottom-0 h-0.5 bg-[#308667] rounded-full"
+              animate={{ left: underline.left, width: underline.width }}
+              transition={{ type: "spring", stiffness: 350, damping: 30 }}
+            />
           </nav>
 
-          {/* Industrial Menu Toggle */}
-          <button
-            className="lg:hidden relative z-[90] flex items-center gap-3 group"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span className="text-[10px] font-black text-[#F9F2D6] uppercase tracking-[0.3em] opacity-60 group-hover:opacity-100 transition-opacity">
-              {menuOpen ? "Close" : "Menu"}
-            </span>
-            <div className="w-6 flex flex-col gap-1.5 items-end">
-              <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "w-6 rotate-45 translate-y-2 bg-[#308667]" : "w-6"}`} />
-              <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "opacity-0" : "w-4"}`} />
-              <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "w-6 -rotate-45 -translate-y-2 bg-[#308667]" : "w-5"}`} />
-            </div>
-          </button>
+          {/* Mobile Menu Toggle - Stays Right */}
+          <div className="lg:hidden flex justify-end">
+            <button
+              className="relative z-[90] flex items-center gap-3 group"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <span className="text-[10px] font-black text-[#F9F2D6] uppercase tracking-[0.3em] opacity-60 group-hover:opacity-100 transition-opacity">
+                {menuOpen ? "Close" : "Menu"}
+              </span>
+              <div className="w-6 flex flex-col gap-1.5 items-end">
+                <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "w-6 rotate-45 translate-y-2 bg-[#308667]" : "w-6"}`} />
+                <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "opacity-0" : "w-4"}`} />
+                <span className={`h-[2px] bg-[#F9F2D6] transition-all duration-500 ${menuOpen ? "w-6 -rotate-45 -translate-y-2 bg-[#308667]" : "w-5"}`} />
+              </div>
+            </button>
+          </div>
         </div>
       </motion.header>
 
-      {/* ================= MOBILE MENU OVERLAY ================= */}
+      {/* MOBILE MENU OVERLAY (remains unchanged as it's already full-screen) */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -126,9 +136,8 @@ const Header: React.FC = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[75] bg-[#0B1A13] flex flex-col p-8 pt-32"
+            className="fixed inset-0 z-[75] bg-[#0B1A13] flex flex-col p-8 pt-40"
           >
-            {/* Background Watermark for Mobile */}
             <div className="absolute bottom-10 left-0 text-[8rem] font-black text-white/[0.03] select-none pointer-events-none tracking-tighter leading-none uppercase">
               Sabolla
             </div>
