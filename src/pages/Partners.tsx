@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
 import PartnersShowcase from "../components/partners/PartnersShowcase";
-import TestimonialsSection from "../components/sections/TestimonialsSection";
+// import TestimonialsSection from "../components/sections/TestimonialsSection";
 
 // Full data imports from your files
 import { PARTNERS } from "../data/partners";
@@ -45,12 +43,12 @@ const PartnersPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= PARTNERS SHOWCASE ================= */}
-      <section className="relative py-32 bg-white rounded-t-[5rem] -mt-12 z-20">
+       {/* ================= PARTNERS SECTION ================= */}
+      <section className="relative py-32 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-black text-[#122C21] uppercase tracking-tighter mb-4">
-              Our Trusted Partners
+            <h2 className="text-5xl md:text-7xl font-black text-[#122C21] uppercase tracking-tighter mb-6">
+              Trusted <span className="text-[#308667]">Partners</span>
             </h2>
             <div className="w-24 h-2 bg-[#308667] mx-auto mb-8 rounded-full" />
             <p className="text-[#387663] max-w-2xl mx-auto text-lg font-medium">
@@ -59,36 +57,29 @@ const PartnersPage: React.FC = () => {
             </p>
           </div>
 
-          {/* International Partners Section */}
-          <section className="mb-32">
-            <div className="flex items-center gap-6 mb-12">
-              <div className="h-px flex-1 bg-slate-100" />
-              <h3 className="text-sm font-black text-[#122C21] uppercase tracking-[0.4em] whitespace-nowrap">
-                International Suppliers
+          <div className="space-y-32">
+            <div className="relative">
+              <div className="absolute -left-10 top-0 text-[12rem] font-black text-[#122C21]/5 leading-none pointer-events-none">INTL</div>
+              <h3 className="relative z-10 text-sm font-black text-[#308667] uppercase tracking-[0.5em] mb-12 text-center lg:text-left">
+                International Partners
               </h3>
-              <div className="h-px flex-1 bg-slate-100" />
+              <PartnersShowcase partners={PARTNERS} />
             </div>
-            <PartnersShowcase partners={PARTNERS} />
-          </section>
 
-          {/* Local & Government Partners Section */}
-          <section>
-            <div className="flex items-center gap-6 mb-12">
-              <div className="h-px flex-1 bg-slate-100" />
-              <h3 className="text-sm font-black text-[#122C21] uppercase tracking-[0.4em] whitespace-nowrap">
-                Local & Government Network
+            <div className="relative">
+              <div className="absolute -right-10 top-0 text-[12rem] font-black text-[#122C21]/5 leading-none pointer-events-none text-right">LOCAL</div>
+              <h3 className="relative z-10 text-xs font-black text-[#308667] uppercase tracking-[0.5em] mb-12 text-center lg:text-right">
+                Local & Government Partners
               </h3>
-              <div className="h-px flex-1 bg-slate-100" />
+              <PartnersShowcase partners={LOCAL_PARTNERS} />
             </div>
-            <PartnersShowcase partners={LOCAL_PARTNERS} />
-          </section>
+          </div>
         </div>
       </section>
 
+
       {/* ================= TESTIMONIALS ================= */}
-      <section className="bg-[#F9F2D6]">
-        <TestimonialsSection />
-      </section>
+      {/* <TestimonialsSection /> */}
 
       {/* ================= CALL TO ACTION ================= */}
       <Topfooter />
