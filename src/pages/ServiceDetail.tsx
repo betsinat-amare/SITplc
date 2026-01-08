@@ -42,6 +42,8 @@ const ServiceDetail: React.FC = () => {
   const currentIndex = serviceKeys.indexOf(slug || "advisory");
   const service = DETAILED_SERVICES[slug || "advisory"] || DETAILED_SERVICES["advisory"];
 
+  return (
+    <div className="bg-white min-h-screen font-sans selection:bg-brand-green selection:text-white">
   const nextSlug = serviceKeys[(currentIndex + 1) % serviceKeys.length];
   const prevSlug = serviceKeys[(currentIndex - 1 + serviceKeys.length) % serviceKeys.length];
 
@@ -69,6 +71,20 @@ const ServiceDetail: React.FC = () => {
           style={{ backgroundImage: `url(${bgPattern})`, backgroundSize: '150px 150px' }}
         />
 
+        <div className="app-container relative z-10">
+          <Link to="/services" className="group text-brand-green font-black uppercase tracking-[0.4em] text-[10px] mb-12 inline-flex items-center hover:text-white transition-all">
+            <FaArrowLeft className="mr-3 group-hover:-translate-x-2 transition-transform" />
+            Back to Services
+          </Link>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-cream uppercase leading-[1.05] mb-8">
+              {service.name.split(' ').slice(0, 2).join(' ')} <br />
+              <span className="text-brand-green">{service.name.split(' ').slice(2).join(' ')}</span>
         <div className="container mx-auto px-6 relative z-10 text-center pb-12">
           <div className="lg:absolute lg:left-6 lg:bottom-12 lg:mb-0 mb-8 flex justify-center lg:block">
             <Link to="/services" className="group inline-flex items-center gap-3 text-white font-black uppercase tracking-[0.4em] text-[10px] hover:text-[#F9F2D6] transition-all no-underline">
@@ -84,6 +100,24 @@ const ServiceDetail: React.FC = () => {
           </motion.div>
         </div>
 
+        {/* Diagonal Angle Cut */}
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
+      </section>
+
+      {/* ================= CONTENT SECTION (UNTOUCHED) ================= */}
+      <div className="app-container py-24 relative -mt-32 z-20">
+        <div className="grid lg:grid-cols-3 gap-16">
+
+          {/* Main Content Area */}
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-10 md:p-16 bg-white rounded-[3rem] shadow-xl border border-[#122C21]/5 mb-16"
+            >
+              <h2 className="text-[10px] font-black text-[#308667] uppercase tracking-[0.4em] mb-6">Introduction</h2>
+              <p className="text-2xl font-bold text-[#122C21] leading-relaxed border-l-8 border-[#308667] pl-8">
         <div className="absolute bottom-0 left-0 w-full h-24 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
       </section>
 

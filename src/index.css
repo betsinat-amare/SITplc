@@ -9,13 +9,42 @@
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
+  
+  /* Brand Colors */
+  --color-brand-green: #308667;
+  --color-dark-green: #0B1A13;
+  --color-cream: #F9F2D6;
+  --color-bg-light: #F4F5F0;
 }
 
 /* 3. Apply it globally to the body */
 @layer base {
   body {
     font-family: var(--font-sans);
-    @apply antialiased;
+    @apply antialiased bg-white text-[#0B1A13];
+  }
+
+  /* Consistent Heading Hierarchy */
+  h1 { @apply tracking-tighter uppercase font-black; }
+  h2 { @apply tracking-tighter uppercase font-black; }
+  h3 { @apply tracking-tight uppercase font-black; }
+}
+
+@layer components {
+  /* Unified Section Header Component */
+  .section-header-tag {
+    @apply flex items-center gap-4 mb-6;
+  }
+  .section-header-line {
+    @apply h-[1px] w-12 bg-brand-green;
+  }
+  .section-header-text {
+    @apply text-[10px] font-black text-brand-green uppercase tracking-[0.5em];
+  }
+
+  /* Standardized Container */
+  .app-container {
+    @apply container mx-auto px-6 lg:px-20 max-w-7xl relative;
   }
 }
 
