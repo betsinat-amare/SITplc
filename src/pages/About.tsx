@@ -32,50 +32,52 @@ const AboutPage: React.FC = () => {
   return (
     // Main background set to a bright "Bone" color (#F4F5F0) 
     // This is bright but allows white nav-links to remain visible
-    <div className="w-full min-h-screen bg-[#cff4e4] font-['Montserrat'] text-[#0B1A13] pt-48 overflow-x-hidden selection:bg-[#308667] selection:text-white">
-      
+    <div className="w-full min-h-screen bg-white font-sans text-dark-green pt-48 overflow-x-hidden selection:bg-brand-green selection:text-white">
+
       {/* ================= HERO SECTION ================= */}
-      <section className="relative pb-24 overflow-hidden">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-            
-            <motion.div 
+      <section className="relative pb-24 overflow-hidden pt-20">
+        <div className="app-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-7 flex flex-col justify-center"
+              className="lg:col-span-12 xl:col-span-7 flex flex-col justify-center relative z-10"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-[1px] w-12 bg-[#308667]" />
-                <span className="text-[10px] font-black text-[#308667] uppercase tracking-[0.5em]">
+              <div className="section-header-tag">
+                <div className="section-header-line" />
+                <span className="section-header-text">
                   Corporate Heritage
                 </span>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#0B1A13] leading-[1.1] uppercase tracking-tighter mb-8">
-               Who <span className="text-[#308667]"> We </span> 
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8">
+                Who <span className="text-brand-green"> We </span>
                 Are
               </h1>
-              
-              <p className="text-lg md:text-xl text-[#0B1A13] max-w-2xl font-bold leading-snug">
+
+              <p className="text-lg md:text-xl text-dark-green max-w-2xl font-bold leading-relaxed mb-8">
                 Sabolla International Trading plc is a leading foreign trade agency with over two decades
                 of experience connecting global businesses to Ethiopian markets.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="lg:col-span-5 relative min-h-[450px]"
+              className="lg:col-span-12 xl:col-span-5 relative flex justify-center items-center"
             >
-              {/* Decorative accent behind the image */}
-              <div className="absolute inset-0 bg-[#308667] rounded-[3rem] translate-x-3 translate-y-3" />
-              <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
-                  alt="Sabolla Professional Partnership"
-                />
+              <div className="relative w-full aspect-square max-w-[480px] group">
+                {/* Decorative accent behind the image */}
+                <div className="absolute inset-0 bg-brand-green rounded-[3rem] translate-x-3 translate-y-3 opacity-20 group-hover:translate-x-5 group-hover:translate-y-5 transition-transform duration-500" />
+                <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 bg-white">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    alt="Sabolla Professional Partnership"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -84,33 +86,33 @@ const AboutPage: React.FC = () => {
 
       {/* ================= THE FOUNDATION ================= */}
       {/* Using a slightly darker "Sand" tone here for section separation */}
-      <section className="py-24 bg-[#EBE9E0] border-y border-[#0B1A13]/5">
-        <div className="container mx-auto px-6 max-w-7xl">
+      <section className="py-24 bg-bg-light border-y border-dark-green/5">
+        <div className="app-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
+
             {/* Left: Tab Selectors */}
             <div className="lg:col-span-4">
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B1A13] mb-10 uppercase tracking-tighter">
-                Core <span className="text-[#308667]">Foundations</span>
+              <h2 className="text-2xl md:text-4xl leading-tight mb-10">
+                Core <span className="text-brand-green">Foundations</span>
               </h2>
-              
+
               <div className="flex flex-col gap-3">
                 {VISION_MISSION_VALUES.map((item) => (
                   <button
                     key={item.key}
                     onClick={() => setActiveTab(item.key)}
                     className={`flex items-center justify-between p-6 rounded-2xl transition-all duration-300 text-left
-                      ${activeTab === item.key 
-                        ? 'bg-[#0B1A13] text-white shadow-xl translate-x-2' 
-                        : 'bg-[#cff4e4] text-[#0B1A13] hover:bg-[#308667]/10'}`}
+                      ${activeTab === item.key
+                        ? 'bg-dark-green text-white shadow-xl translate-x-2'
+                        : 'bg-white text-dark-green hover:bg-brand-green/10 border border-dark-green/5'}`}
                   >
                     <div className="flex items-center gap-4">
-                      <span className={`${activeTab === item.key ? 'text-[#308667]' : 'text-[#0B1A13]/20'}`}>
+                      <span className={`${activeTab === item.key ? 'text-brand-green' : 'text-dark-green/20'}`}>
                         {item.icon}
                       </span>
                       <span className="text-xs font-black uppercase tracking-widest">{item.title}</span>
                     </div>
-                    <FaChevronRight className={`text-[10px] transition-transform ${activeTab === item.key ? 'rotate-0 text-[#308667]' : 'rotate-90 opacity-20'}`} />
+                    <FaChevronRight className={`text-[10px] transition-transform ${activeTab === item.key ? 'rotate-0 text-brand-green' : 'rotate-90 opacity-20'}`} />
                   </button>
                 ))}
               </div>
@@ -125,15 +127,15 @@ const AboutPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="bg-[#F4F5F0] p-10 md:p-16 rounded-[2.5rem] border-l-8 border-[#308667] shadow-lg min-h-[380px] flex flex-col justify-center"
+                  className="bg-white p-10 md:p-16 rounded-[2.5rem] border-l-8 border-brand-green shadow-lg min-h-[380px] flex flex-col justify-center"
                 >
-                  <span className="text-[10px] font-black text-[#308667] uppercase tracking-widest mb-4">
+                  <span className="text-[10px] font-black text-brand-green uppercase tracking-widest mb-4">
                     Deep Dive
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-black text-[#0B1A13] mb-6 uppercase tracking-tight">
+                  <h3 className="text-2xl md:text-3xl mb-6">
                     {activeContent?.title}
                   </h3>
-                  <p className="text-base md:text-lg text-[#0B1A13] leading-relaxed font-medium">
+                  <p className="text-base md:text-lg text-dark-green leading-relaxed font-medium">
                     {activeContent?.content}
                   </p>
                 </motion.div>
@@ -144,16 +146,16 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* ================= FINAL CALL TO ACTION ================= */}
-      <section className="py-32 bg-[#0B1A13] text-center relative overflow-hidden">
+      <section className="py-32 bg-dark-green text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#308667_1px,transparent_1px)] [background-size:30px_30px]" />
-        
+
         <div className="relative z-10 container mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-10 leading-none">
-            Ready to Expand <br/> <span className="text-[#308667]">Into Ethiopia?</span>
+          <h2 className="text-4xl md:text-6xl text-white mb-10 leading-none">
+            Ready to Expand <br /> <span className="text-brand-green">Into Ethiopia?</span>
           </h2>
-          <Link 
-            to="/contact" 
-            className="inline-block bg-[#308667] text-white font-black py-5 px-16 rounded-full text-[11px] uppercase tracking-[0.3em] hover:bg-white hover:text-[#0B1A13] transition-all duration-500 shadow-2xl"
+          <Link
+            to="/contact"
+            className="inline-block bg-brand-green text-white font-black py-5 px-16 rounded-full text-[11px] uppercase tracking-[0.3em] hover:bg-white hover:text-dark-green transition-all duration-500 shadow-2xl"
           >
             Consult an Expert
           </Link>

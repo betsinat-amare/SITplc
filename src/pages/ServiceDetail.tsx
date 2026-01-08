@@ -71,7 +71,7 @@ const ServiceDetail: React.FC = () => {
   const service = DETAILED_SERVICES[slug || "advisory"] || DETAILED_SERVICES["advisory"];
 
   return (
-    <div className="bg-[#F9F2D6] min-h-screen font-['Montserrat'] selection:bg-[#308667] selection:text-white">
+    <div className="bg-white min-h-screen font-sans selection:bg-brand-green selection:text-white">
 
       {/* ================= HERO SECTION - SYNCED WITH PRODUCTS ================= */}
       <section className="relative bg-[#387663] pt-40 pb-56 overflow-hidden">
@@ -86,8 +86,8 @@ const ServiceDetail: React.FC = () => {
           }}
         />
 
-        <div className="container mx-auto px-6 relative z-10 max-w-7xl">
-          <Link to="/services" className="group text-[#09140F] font-black uppercase tracking-[0.4em] text-[10px] mb-12 inline-flex items-center hover:text-[#F9F2D6] transition-all">
+        <div className="app-container relative z-10">
+          <Link to="/services" className="group text-brand-green font-black uppercase tracking-[0.4em] text-[10px] mb-12 inline-flex items-center hover:text-white transition-all">
             <FaArrowLeft className="mr-3 group-hover:-translate-x-2 transition-transform" />
             Back to Services
           </Link>
@@ -97,19 +97,19 @@ const ServiceDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-9xl font-black text-[#F9F2D6] uppercase leading-[0.85] tracking-tighter mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-cream uppercase leading-[1.05] mb-8">
               {service.name.split(' ').slice(0, 2).join(' ')} <br />
-              <span className="text-[#09140F]">{service.name.split(' ').slice(2).join(' ')}</span>
+              <span className="text-brand-green">{service.name.split(' ').slice(2).join(' ')}</span>
             </h1>
           </motion.div>
         </div>
 
         {/* Diagonal Angle Cut */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-[#F9F2D6]" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
       </section>
 
       {/* ================= CONTENT SECTION (UNTOUCHED) ================= */}
-      <div className="container mx-auto px-6 py-24 max-w-7xl relative -mt-32 z-20">
+      <div className="app-container py-24 relative -mt-32 z-20">
         <div className="grid lg:grid-cols-3 gap-16">
 
           {/* Main Content Area */}

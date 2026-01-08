@@ -10,29 +10,30 @@ import Topfooter from '../components/layout/Topfooter';
 
 const PartnersPage: React.FC = () => {
   return (
-    <div className="bg-[#FCFAF2] min-h-screen font-['Montserrat'] text-[#0B1A13] overflow-x-hidden">
-      
-      {/* ================= HERO SECTION (Matched to Home/About Style) ================= */}
-      <section className="relative pt-48 pb-24 overflow-hidden bg-[#cff4e4]">
-        {/* Decorative background accents matching Home Page */}
-        <div className="absolute top-0 right-0 w-1/4 h-full bg-[#0B1A13] hidden lg:block" />
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-[#308667]/10 rounded-full blur-[120px]" />
+    <div className="bg-white min-h-screen font-sans text-dark-green overflow-x-hidden pt-20 selection:bg-brand-green selection:text-white">
 
-        <div className="container mx-auto px-6 relative z-10">
+      {/* ================= HERO SECTION (Matched to Home/About Style) ================= */}
+      <section className="relative pt-48 pb-24 overflow-hidden bg-white">
+        <div className="absolute top-0 right-0 w-1/4 h-full bg-brand-green/5 hidden lg:block" />
+
+        <div className="app-container relative z-10">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[10px] font-black text-[#308667] uppercase tracking-[0.5em] block mb-6">
-                Global Network
-              </span>
-              <h1 className="text-5xl md:text-6xl lg:text-5xl font-black leading-[1.1] tracking-tighter uppercase mb-8">
+              <div className="section-header-tag">
+                <div className="section-header-line" />
+                <span className="section-header-text">
+                  Global Network
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-8">
                 Strategic <br />
-                <span className="text-[#308667]">Synergy & Partnerships</span>
+                <span className="text-brand-green">Synergy & Partnerships</span>
               </h1>
-              <p className="text-xl text-[#0B1A13]/70 max-w-2xl font-medium leading-relaxed mb-10">
+              <p className="text-lg md:text-xl text-dark-green/70 max-w-2xl font-bold leading-relaxed mb-10">
                 We bridge the gap between world-class technology and Ethiopia's industrial landscape by representing the world's most innovative manufacturers.
               </p>
             </motion.div>
@@ -40,14 +41,14 @@ const PartnersPage: React.FC = () => {
         </div>
       </section>
 
-       {/* ================= PARTNERS SECTION ================= */}
-      <section className="relative py-32 bg-white">
-        <div className="container mx-auto px-6 max-w-7xl">
+      {/* ================= PARTNERS SECTION ================= */}
+      <section className="relative py-32 bg-bg-light border-y border-dark-green/5">
+        <div className="app-container">
           <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-black text-[#122C21] uppercase tracking-tighter mb-6">
-              Trusted <span className="text-[#308667]">Partners</span>
+            <h2 className="text-2xl md:text-4xl font-black text-dark-green uppercase tracking-tighter mb-6">
+              Trusted <span className="text-brand-green">Partners</span>
             </h2>
-            <p className="text-xl text-[#122C21]/60 max-w-2xl mx-auto font-medium">
+            <p className="text-lg md:text-xl text-dark-green/60 max-w-2xl mx-auto font-bold">
               We collaborate with globally recognized manufacturers and technology leaders
               to deliver premium solutions into Ethiopia.
             </p>
@@ -77,8 +78,8 @@ const PartnersPage: React.FC = () => {
       {/* ================= TESTIMONIALS ================= */}
       {/* <TestimonialsSection /> */}
 
-     {/* ================= CALL TO ACTION ================= */}
-      <Topfooter/>
+      {/* ================= CALL TO ACTION ================= */}
+      <Topfooter />
     </div>
   );
 };
