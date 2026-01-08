@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from "react-router-dom";
 import { FaFingerprint, FaCompass, FaLightbulb, FaChevronRight } from "react-icons/fa";
+import Topfooter from '../components/layout/Topfooter';
 
 const VISION_MISSION_VALUES = [
   {
@@ -38,6 +39,12 @@ const AboutPage: React.FC = () => {
       <section className="relative pb-24 overflow-hidden pt-20">
         <div className="app-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div className="w-full min-h-screen bg-[#cff4e4] font-['Montserrat'] text-[#0B1A13] pt-48 overflow-x-hidden selection:bg-[#308667] selection:text-white">
+
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative pb-24 overflow-hidden">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -58,6 +65,12 @@ const AboutPage: React.FC = () => {
               </h1>
 
               <p className="text-lg md:text-xl text-dark-green max-w-2xl font-bold leading-relaxed mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#0B1A13] leading-[1.1] uppercase tracking-tighter mb-8">
+                Who <span className="text-[#308667]"> We </span>
+                Are
+              </h1>
+
+              <p className="text-lg md:text-xl text-[#0B1A13] max-w-2xl font-bold leading-snug">
                 Sabolla International Trading plc is a leading foreign trade agency with over two decades
                 of experience connecting global businesses to Ethiopian markets.
               </p>
@@ -78,6 +91,14 @@ const AboutPage: React.FC = () => {
                     alt="Sabolla Professional Partnership"
                   />
                 </div>
+              {/* Decorative accent behind the image */}
+              <div className="absolute inset-0 bg-[#308667] rounded-[3rem] translate-x-3 translate-y-3" />
+              <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  alt="Sabolla Professional Partnership"
+                />
               </div>
             </motion.div>
           </div>
@@ -105,6 +126,8 @@ const AboutPage: React.FC = () => {
                       ${activeTab === item.key
                         ? 'bg-dark-green text-white shadow-xl translate-x-2'
                         : 'bg-white text-dark-green hover:bg-brand-green/10 border border-dark-green/5'}`}
+                        ? 'bg-[#0B1A13] text-white shadow-xl translate-x-2'
+                        : 'bg-[#cff4e4] text-[#0B1A13] hover:bg-[#308667]/10'}`}
                   >
                     <div className="flex items-center gap-4">
                       <span className={`${activeTab === item.key ? 'text-brand-green' : 'text-dark-green/20'}`}>
@@ -161,6 +184,7 @@ const AboutPage: React.FC = () => {
           </Link>
         </div>
       </section>
+      <Topfooter />
     </div>
   );
 };
