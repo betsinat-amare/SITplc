@@ -77,7 +77,7 @@ const PartnersPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= CALL TO ACTION ================= */}
+      {/* ================= FOOTER ================= */}
       <Topfooter />
     </div>
   );
